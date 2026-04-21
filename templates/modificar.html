@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Modificar Cita - VetCitas{% endblock %}
+
+{% block contenido %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow border-0">
+            <div class="card-header bg-warning bg-gradient text-dark">
+                <h4 class="mb-0">
+                    <i class="bi bi-pencil-square me-2"></i>Modificar Cita
+                </h4>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST" action="{{ url_for('modificar', id=cita['id']) }}">
+
+                    <div class="mb-3">
+                        <label for="mascota" class="form-label fw-semibold">
+                            <i class="bi bi-heart-fill text-danger me-1"></i> Nombre de la Mascota
+                        </label>
+                        <input type="text" class="form-control" id="mascota" name="mascota"
+                               value="{{ cita['mascota'] }}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="propietario" class="form-label fw-semibold">
+                            <i class="bi bi-person-fill text-primary me-1"></i> Propietario
+                        </label>
+                        <input type="text" class="form-control" id="propietario" name="propietario"
+                               value="{{ cita['propietario'] }}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="especie" class="form-label fw-semibold">
+                            <i class="bi bi-tag-fill text-warning me-1"></i> Especie
+                        </label>
+                        <select class="form-select" id="especie" name="especie">
+                            <option value="">Selecciona una especie</option>
+                            <option value="Perro" {% if cita['especie'] == 'Perro' %}selected{% endif %}>🐶 Perro</option>
+                            <option value="Gato" {% if cita['especie'] == 'Gato' %}selected{% endif %}>🐱 Gato</option>
+                            <option value="Ave" {% if cita['especie'] == 'Ave' %}selected{% endif %}>🐦 Ave</option>
+                            <option value="Conejo" {% if cita['especie'] == 'Conejo' %}selected{% endif %}>🐰 Conejo</option>
+                            <option value="Tortuga" {% if cita['especie'] == 'Tortuga' %}selected{% endif %}>🐢 Tortuga</option>
+                            <option value="Pez" {% if cita['especie'] == 'Pez' %}selected{% endif %}>🐟 Pez</option>
+                            <option value="Otro" {% if cita['especie'] == 'Otro' %}selected{% endif %}>🐾 Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="fecha" class="form-label fw-semibold">
+                            <i class="bi bi-calendar-event-fill text-info me-1"></i> Fecha de la Cita
+                        </label>
+                        <input type="date" class="form-control" id="fecha" name="fecha"
+                               value="{{ cita['fecha'] }}" required>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="{{ url_for('agenda') }}" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i> Volver
+                        </a>
+                        <button type="submit" class="btn btn-warning">
+                            <i class="bi bi-save"></i> Guardar Cambios
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
