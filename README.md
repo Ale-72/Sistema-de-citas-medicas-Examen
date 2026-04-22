@@ -25,7 +25,7 @@ Aplicación web para la gestión de citas en una clínica veterinaria, desarroll
 ```bash
 # 1. Clonar el repositorio
 git clone https://github.com/Ale-72/Sistema-de-citas-medicas-Examen
-cd Examen
+cd Sistema-de-citas-medicas-Examen
 
 # 2. Crear y activar el entorno virtual
 python3 -m venv venv
