@@ -24,6 +24,7 @@ def init_db():
             fecha TEXT NOT NULL
         )
     ''')
+    
     conn.commit()
     conn.close()
 
